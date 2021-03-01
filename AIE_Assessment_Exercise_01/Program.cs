@@ -19,8 +19,6 @@ namespace AIE_Assessment_Exercise_01
             secondNumber = float.Parse(args[1]);
 
             Console.WriteLine(AddNumbers(firstNumber, secondNumber));
-            Console.ReadKey();
-
              
         }
         static float AddNumbers(float a, float b)

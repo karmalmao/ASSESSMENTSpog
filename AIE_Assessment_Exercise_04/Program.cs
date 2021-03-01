@@ -22,14 +22,14 @@ namespace AIE_Assessment_Exercise_04
 
             Console.WriteLine(SumNumbers(numbers));
         }
-        static int SumNumbers(int[] a)
+        static int SumNumbers(int[] numbers)
         {
-            int b = 0;
-            for (int i = 0 ; i < a.Length ; i++)
+            int total = 0;
+            for (int i = 0 ; i < numbers.Length ; i++)
             {
-                b = b + a[i];
+                total = total + numbers[i];
             }
-            return b;
+            return total;
         }
     }
 }

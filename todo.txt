@@ -1,0 +1,42 @@
+ a i 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ TODO:
+ Refactor Fibonacci (Exercise 02)
+ - return array of fibonacci numbers
+ - then loop thropugh the items in the array and print them.
+ 
+ 
+TODO: watch FizBuzz: One Simple Interview Question (Tom Scott)
+
+TODO: watch video going through bubble sort algorithm
+https://myaie.sharepoint.com/sites/AieSydProg2021Yr1/SitePages/Sorting-Algorithm-(Bubble-Sort).aspx
+
+
+
+
+TODO: Refactor   Appendix 3 - Exercise 1: Alphabetize a File
+Create 3 seperate methods to preform the following:
+	- ReadWords
+	- SortWords
+	- SaveWords
+
+
+	
+	
+TODO: Refactror Exercise 7, Person and Doctor constructors should have proper names.
+
+
+TODO: Exercise 8, Refactor
+	- missaligned brackets
