@@ -21,6 +21,7 @@ namespace AIE_Assessment_Exercise_06
                 {
                     save[i] = sr.ReadLine();
                 }
+
                 Array.Sort(save);
                 using (StreamWriter sw = File.CreateText("./output.txt"))
                 {

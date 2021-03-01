@@ -32,7 +32,7 @@ namespace AIE_Assessment_Exercise_05
             for (int j = 0 ; j <= a.Length - 2 ; j++ ){
                 for (int i = 0 ; i <= a.Length - 2 ; i++)
                 {
-                    if (a[i] > a[i + 1])
+                    if (a[i] <= a[i + 1])
                     {
                         int t = a[i + 1];
                         a[i + 1] = a[i];

@@ -28,15 +28,15 @@ namespace AIE_Assessment_Exercise_03
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    Console.WriteLine(i + " FizzBuzz");
+                    Console.WriteLine(" FizzBuzz");
                 }
                 else if (i % 3 == 0)
                 {
-                    Console.WriteLine(i + " Fizz");
+                    Console.WriteLine(" Fizz");
                 }
                 else if (i % 5 == 0)
                 {
-                    Console.WriteLine(i + " Buzz");
+                    Console.WriteLine(" Buzz");
                 }
                 else
                 {

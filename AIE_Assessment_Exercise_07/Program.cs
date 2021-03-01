@@ -43,9 +43,9 @@ namespace AIE_Assessment_Exercise_07
         public virtual void SayGreeting()
         {
             Console.WriteLine($"Hello, I'm {name}");
-            Console.WriteLine(email);
-            Console.WriteLine(phone);
-            Console.WriteLine(salary);
+            //Console.WriteLine(email);
+            //Console.WriteLine(phone);
+            //Console.WriteLine(salary);
         }
     }
     class Doctor : Person
@@ -61,10 +61,10 @@ namespace AIE_Assessment_Exercise_07
         }
         public override void SayGreeting()
         {
-            Console.WriteLine($"Hello, I'm Dr.{name}");
-            Console.WriteLine(email);
-            Console.WriteLine(phone);
-            Console.WriteLine(salary);
+            Console.WriteLine($"Hello, I'm Dr. {name}");
+            //Console.WriteLine(email);
+            //Console.WriteLine(phone);
+            //Console.WriteLine(salary);
 
         }
     }

@@ -4,137 +4,164 @@
 
 using System;
 using System.Numerics;
+using System.Collections;
 
-namespace AIE_Assessment_Exercise_08
+namespace AdventureGame
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-
             Room[,] map = new Room[3 , 3];
 
-            Character p = new Player(1,1,1,true);
-            Character e = new Enemy(1,1,1,true);
-            GameObject pu = new Powerup();
-          //  map[].AddGameObject()
-
-
-
-
             for (int row = 0 ; row < 3 ; row++)
             {
                 for (int col = 0 ; col < 3 ; col++)
                 {
-                    if (map[row,col]==null)
-                    {
-                        map[row , col] = new Room();
-                    }
-                  
+                    map[row , col] = new Room();
                 }
             }
+            Player p = new Player();
+            Enemy e = new Enemy();
+            PowerUp pu = new PowerUp();
 
-            //Console.Write("_"); Console.Write("?"); Console.WriteLine("_");
-            //Console.Write("_"); Console.Write("X"); Console.WriteLine("_");
-            //Console.Write("O"); Console.Write("_"); Console.WriteLine("_");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
-            //Console.WriteLine(e);
+          
 
+            map[1 , 1].AddGameObject(p);
+            map[2 , 0].AddGameObject(e);
+            map[0 , 1].AddGameObject(pu);
 
-
-
-
-
-            // Player p = new Player(10,27,6,true);
-            // Enemy e = new Enemy(10, 27, 6, true);
-            // PowerUp pu = new PowerUp();
-            //
-            // map[1, 1].AddGameObject(p);
-            // map[2, 0].AddGameObject(e);
-            // map[0, 1].AddGameObject(pu);
-            //
             for (int row = 0 ; row < 3 ; row++)
             {
                 for (int col = 0 ; col < 3 ; col++)
                 {
+                    
                     map[row , col].Draw();
-                }
-                Console.WriteLine();
+                    if (map[row , col] == map[0 , 2] || map[row , col] == map[1 , 2] || map[row , col] == map[2 , 2]) Console.WriteLine();
+                }   
             }
-            // Console.ReadLine();
+            Console.WriteLine();
+
+
+            map[0 , 1].RemoveGameObject(pu);
+
+            for (int row = 0 ; row < 3 ; row++)
+            {
+                for (int col = 0 ; col < 3 ; col++)
+                {
+
+                    map[row , col].Draw();
+                    if (map[row , col] == map[0 , 2] || map[row , col] == map[1 , 2] || map[row , col] == map[2 , 2]) Console.WriteLine();
+                }
+            }
+
+
+
 
         }
     }
-    class Room
+    }
+    public abstract class GameObject
     {
-        public Room()
+        public virtual void Draw()
         {
 
         }
+    }
+
+    public class Room
+    {
+        GameObject[] objects = new GameObject[3];
+        
         public void AddGameObject(GameObject a)
         {
-          
-        }
-        public virtual void Draw()
-        {
+            for (int i = 0 ; i < objects.Length ; i++)
+            {
+                if (objects[i] == null) 
+                {
+                    objects[i] = a;
+                    break;
+                }
 
+            }
         }
-        public void RemoveGameObject()
+        public void RemoveGameObject(GameObject a)
+        {
+            for (int i = 0 ; i < objects.Length ; i++)
+            {
+                if (objects[i] == a)
+                {
+                    objects[i] = null;
+                    Array.Sort(objects);
+                    break;
+                    
+                }
+            }
+        }
+        public void Draw()
+        {
+            for (int i = 0 ; i < objects.Length ; i++)
+            {
+                if (objects[i] == null)
+                {
+                    Console.Write("_");
+                    break;
+
+                }
+                if (objects[i] != null)
+                {
+                    objects[i].Draw();
+                    break;
+
+                }
+            }
+        }
+    }
+    public class Character : GameObject
+    {
+        public override void Draw()
         {
 
         }
     }
-
-    class GameObject
+    public class Player : Character
     {
-
-    }
-    class Powerup : GameObject
-    {
-
-    }
-
-    class Character : GameObject
-    {
-        public int AT = 0;
-        public int HP = 0;
-        public int DF = 0;
-        public bool IsAlive = false;
-        public Character(int AT , int HP , int DF , bool IsAlive)
+        public Player()
         {
-            this.AT = AT;
-            this.HP = HP;
-            this.DF = DF;
-            this.IsAlive = IsAlive;
-        }
-
-    }
-    class Player : Character
-    {
-        public Player(int AT , int HP , int DF , bool IsAlive) : base(AT , HP , DF , IsAlive)
-        {
-            this.AT = AT;
-            this.HP = HP;
-            this.DF = DF;
-            this.IsAlive = IsAlive;
 
         }
-        public virtual void Draw()
+        public override void Draw()
         {
             Console.Write("X");
         }
     }
-    class Enemy : Character
+    public class Enemy : Character
     {
-        public Enemy(int AT , int HP , int DF , bool IsAlive) : base(AT , HP , DF , IsAlive)
+    int hp = 10;
+    public Enemy()
         {
-            this.AT = AT;
-            this.HP = HP;
-            this.DF = DF;
-            this.IsAlive = IsAlive;
+        
+        }
+        public override void Draw()
+        {
+        if (hp >= 10)
+        {
+            Console.Write("O");
+        }
+        else
+        {
+            Console.Write("o");
+        }
+            
         }
     }
-}
+    public class PowerUp : GameObject
+    {
+        public override void Draw()
+        {
+            Console.Write("?");
+        }
+    }
+
     
 
