@@ -12,7 +12,8 @@ namespace AIE_Assessment_Exercise_06
     {
         static void Main(string[] args)
         {
-            using (StreamReader sr = File.OpenText("./words.txt")) {
+            using (StreamReader sr = File.OpenText("./words.txt"))
+            {
                 int test = int.Parse(sr.ReadLine());
 
                 string[] save = new string[test];
@@ -32,15 +33,6 @@ namespace AIE_Assessment_Exercise_06
                     }
                 }
 
-
-
-
-
-
-
-
-
-               
             }
         }
     }

@@ -15,8 +15,45 @@ namespace AIE_Assessment_Exercise_07
             // - A Person and Doctor classes.
 
             Person p1 = new Person("Bob" , "email here p1" , "num here p1" , 1000);
-            Person p2 = new Doctor("Fred" , "email here p2" , "num here p2" , 2000);
+            Doctor p2 = new Doctor("Fred" , "email here p2" , "num here p2" , 2000);
             Person p3 = new Doctor("Ted" , "email here p3" , "num here p3" , 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             // Invoke the "SayGreeting" method on the above instances

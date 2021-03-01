@@ -137,21 +137,21 @@ namespace AdventureGame
     }
     public class Enemy : Character
     {
-    int hp = 10;
-    public Enemy()
+        int hp = 10;
+        public Enemy()
         {
         
         }
         public override void Draw()
         {
-        if (hp >= 10)
-        {
-            Console.Write("O");
-        }
-        else
-        {
-            Console.Write("o");
-        }
+            if (hp >= 10)
+            {
+                Console.Write("O");
+            }
+            else
+            {
+                Console.Write("o");
+            }
             
         }
     }

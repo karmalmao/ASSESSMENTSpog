@@ -10,15 +10,12 @@ namespace AIE_Assessment_Exercise_03
     {
         static void Main(string[] args)
         {
-            int numberOfElements = 0;
-
             if (args.Length < 1)
             {
                 args = new string[] { "16" };
             }
 
-            numberOfElements = Int32.Parse(args[0]);
-
+            int numberOfElements = int.Parse(args[0]);
             FizzBuzz(numberOfElements);
         }
         static void FizzBuzz(int a)
