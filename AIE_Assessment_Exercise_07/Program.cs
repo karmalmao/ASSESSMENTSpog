@@ -18,48 +18,10 @@ namespace AIE_Assessment_Exercise_07
             Doctor p2 = new Doctor("Fred" , "email here p2" , "num here p2" , 2000);
             Person p3 = new Doctor("Ted" , "email here p3" , "num here p3" , 3000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             // Invoke the "SayGreeting" method on the above instances
-             p1.SayGreeting(); // hello I'm Bob
-             p2.SayGreeting(); // hello I'm Dr. Fred
-             p3.SayGreeting(); // hello I'm Dr. Ted
+            p1.SayGreeting(); // hello I'm Bob
+            p2.SayGreeting(); // hello I'm Dr. Fred
+            p3.SayGreeting(); // hello I'm Dr. Ted
         }
     }
     public class Person
@@ -68,15 +30,14 @@ namespace AIE_Assessment_Exercise_07
         public string name = "";
         public string email = "";
         public string phone = "";
-         public Person(string a, string b, string c, float d)
+        public Person(string name , string email , string phone , float salary)
         {
-            name = a;
-            email = b;
-            phone = c;
-            salary = d;
-
+            this.name = name;
+            this.email = email;
+            this.phone = phone;
+            this.salary = salary;
         }
-        
+
         public virtual void SayGreeting()
         {
             Console.WriteLine($"Hello, I'm {name}");
@@ -87,14 +48,12 @@ namespace AIE_Assessment_Exercise_07
     }
     class Doctor : Person
     {
-
-
-        public Doctor(string a, string b, string c, float d) : base(a,b,c,d)
+        public Doctor(string name , string email , string phone , float salary) : base(name , email , phone , salary)
         {
-            name = a;
-            email = b;
-            phone = c;
-            salary = d;
+            base.name = name;
+            base.email = email;
+            base.phone = phone;
+            base.salary = salary;
         }
         public override void SayGreeting()
         {

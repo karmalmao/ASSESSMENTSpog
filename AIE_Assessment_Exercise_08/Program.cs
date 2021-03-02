@@ -25,7 +25,7 @@ namespace AdventureGame
             Enemy e = new Enemy();
             PowerUp pu = new PowerUp();
 
-          
+
 
             map[1 , 1].AddGameObject(p);
             map[2 , 0].AddGameObject(e);
@@ -35,10 +35,10 @@ namespace AdventureGame
             {
                 for (int col = 0 ; col < 3 ; col++)
                 {
-                    
+
                     map[row , col].Draw();
                     if (map[row , col] == map[0 , 2] || map[row , col] == map[1 , 2] || map[row , col] == map[2 , 2]) Console.WriteLine();
-                }   
+                }
             }
             Console.WriteLine();
 
@@ -60,108 +60,108 @@ namespace AdventureGame
 
         }
     }
-    }
-    public abstract class GameObject
+}
+public abstract class GameObject
+{
+    public virtual void Draw()
     {
-        public virtual void Draw()
+
+    }
+}
+
+public class Room
+{
+    GameObject[] objects = new GameObject[3];
+
+    public void AddGameObject(GameObject a)
+    {
+        for (int i = 0 ; i < objects.Length ; i++)
         {
+            if (objects[i] == null)
+            {
+                objects[i] = a;
+                break;
+            }
 
         }
     }
-
-    public class Room
+    public void RemoveGameObject(GameObject a)
     {
-        GameObject[] objects = new GameObject[3];
-        
-        public void AddGameObject(GameObject a)
+        for (int i = 0 ; i < objects.Length ; i++)
         {
-            for (int i = 0 ; i < objects.Length ; i++)
+            if (objects[i] == a)
             {
-                if (objects[i] == null) 
-                {
-                    objects[i] = a;
-                    break;
-                }
+                objects[i] = null;
+                Array.Sort(objects);
+                break;
 
             }
         }
-        public void RemoveGameObject(GameObject a)
+    }
+    public void Draw()
+    {
+        for (int i = 0 ; i < objects.Length ; i++)
         {
-            for (int i = 0 ; i < objects.Length ; i++)
+            if (objects[i] == null)
             {
-                if (objects[i] == a)
-                {
-                    objects[i] = null;
-                    Array.Sort(objects);
-                    break;
-                    
-                }
+                Console.Write("_");
+                break;
+
             }
-        }
-        public void Draw()
-        {
-            for (int i = 0 ; i < objects.Length ; i++)
+            if (objects[i] != null)
             {
-                if (objects[i] == null)
-                {
-                    Console.Write("_");
-                    break;
+                objects[i].Draw();
+                break;
 
-                }
-                if (objects[i] != null)
-                {
-                    objects[i].Draw();
-                    break;
-
-                }
             }
         }
     }
-    public class Character : GameObject
+}
+public class Character : GameObject
+{
+    public override void Draw()
     {
-        public override void Draw()
-        {
 
-        }
     }
-    public class Player : Character
+}
+public class Player : Character
+{
+    public Player()
     {
-        public Player()
-        {
 
-        }
-        public override void Draw()
-        {
-            Console.Write("X");
-        }
     }
-    public class Enemy : Character
+    public override void Draw()
     {
-        int hp = 10;
-        public Enemy()
-        {
-        
-        }
-        public override void Draw()
-        {
-            if (hp >= 10)
-            {
-                Console.Write("O");
-            }
-            else
-            {
-                Console.Write("o");
-            }
-            
-        }
+        Console.Write("X");
     }
-    public class PowerUp : GameObject
+}
+public class Enemy : Character
+{
+    int hp = 10;
+    public Enemy()
     {
-        public override void Draw()
-        {
-            Console.Write("?");
-        }
-    }
 
-    
+    }
+    public override void Draw()
+    {
+        if (hp >= 10)
+        {
+            Console.Write("O");
+        }
+        else
+        {
+            Console.Write("o");
+        }
+
+    }
+}
+public class PowerUp : GameObject
+{
+    public override void Draw()
+    {
+        Console.Write("?");
+    }
+}
+
+
 

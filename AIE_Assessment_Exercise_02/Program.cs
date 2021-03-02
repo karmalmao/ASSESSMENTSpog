@@ -12,29 +12,31 @@ namespace AIE_Assessment_Exercise_02
         {
             if (args.Length < 1)
             {
-                args = new string[] { "5" };
+                args = new string[] { "8" };
             }
 
             int numberOfElements = int.Parse(args[0]);
-            Fibonacci(numberOfElements); 
-
-            // TODO: loop through elements and print them
-        }
-        static void Fibonacci(int a)
-        {
-            int[] fib = new int[a];
-            int b = 0;
-            int c = 1;
-            for (int i = 0 ; i <= fib.Length / 2  ; i++)
+            for (int i = 0 ; i < numberOfElements ; i++)
             {
-                b = b + c;
-                Console.WriteLine(c);
-                c = b + c;
-                Console.WriteLine(b);
+                Console.Write($"{Fibonacci(i)}, ");
             }
-            
- //         0 1 1 2 3 5 8 13
- //         b c b c b c b  c
+            // TODO: loop through elements and print them : DONE
+        }
+        static int Fibonacci(int a)
+        {
+            int[] Fib = new int[a + 2];
+            Fib[0] = 0;
+            Fib[1] = 1;
+            for (int i = 0 ; i < a ; i++)
+            {
+                int temp = Fib[0];
+                Fib[0] = Fib[1];
+                Fib[1] = temp + Fib[0];
+            }
+            return Fib[0];
+
+
         }
     }
 }
+

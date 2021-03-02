@@ -5,6 +5,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace AIE_Assessment_Exercise_06
 {
@@ -12,28 +13,39 @@ namespace AIE_Assessment_Exercise_06
     {
         static void Main(string[] args)
         {
-            using (StreamReader sr = File.OpenText("./words.txt"))
+            List<string> words = new List<string>();
+
+            LoadWords("./words.txt" , words);
+            SortWords(words);
+            SaveWords("./output.txt" , words);
+
+        }
+        public static List<string> LoadWords(string path , List<string> list)
+        {
+            using (StreamReader sr = File.OpenText(path))
             {
-                int test = int.Parse(sr.ReadLine());
-
-                string[] save = new string[test];
-
-                for (int i = 1 ; i < save.Length ; i++)
+                int numofwords = int.Parse(sr.ReadLine());
+                for (int i = 0 ; i < numofwords ; i++)
                 {
-                    save[i] = sr.ReadLine();
+                    list.Add(sr.ReadLine());
                 }
-
-                Array.Sort(save);
-                using (StreamWriter sw = File.CreateText("./output.txt"))
-                {
-                    for (int i = 1 ; i < save.Length ; i++)
-                    {
-                        string str = save[i];
-                        sw.WriteLine(str);
-                    }
-                }
-
+                return list;
             }
         }
+        public static void SortWords(List<string> words)
+        {
+            words.Sort();
+        }
+        public static void SaveWords(string path, List<string> words)
+        {
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                for (int i = 1 ; i < words.Count ; i++)
+                {
+                    sw.WriteLine(words[i]);
+                }
+            }
+        }
+
     }
 }
